@@ -24,7 +24,7 @@ namespace BlaBlaAPI.Controllers
         {
             var bla = await _context.BlaBlas.FindAsync(id);
             if (bla == null)
-                return BadRequest("Nix da junge");
+                return BadRequest("Nichts");
             return Ok(bla);
         }
 
@@ -42,7 +42,7 @@ namespace BlaBlaAPI.Controllers
         {
             var bla = await _context.BlaBlas.FindAsync(request.ID);
             if (bla == null)
-                return BadRequest("Nix da junge");
+                return BadRequest("Nichts");
 
             bla.Name = request.Name;
             bla.FirstName = request.FirstName;
@@ -57,7 +57,7 @@ namespace BlaBlaAPI.Controllers
         {
             var bla = await _context.BlaBlas.FindAsync(id);
             if (bla == null)
-                return BadRequest("Nix da junge");
+                return BadRequest("Nichts");
             _context.BlaBlas.Remove(bla);
             await _context.SaveChangesAsync();
             return Ok(await _context.BlaBlas.ToListAsync());
